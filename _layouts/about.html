@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='{{ page.title }} - {{ site.title }}' property='og:title' />
+  <title>{{ page.title }} - {{ site.title }}</title>
+  {% include head.html %}
+</head>
+<body>
+  {% include links.html %}
+  <div id="wrapper" class="typo typo-section">
+    <div id="about-content">
+      <div style="min-width: 250px">
+        <img class="avatar" src="https://avatars0.githubusercontent.com/u/895809?s=460&v=4" width=230 height=230 alt="">
+        <h1>DeathKing</h1>
+        <ul>
+          <li><a href="https://github.com/DeathKing" title="">GitHub(@DeathKing)</a></li>
+        </ul>
+      </div>
+    
+      <div style="font-family: serif; font-size: 150%; padding: 0 4% 0 4%;">
+        <p>德君斯金，蜀地锦城人氏，好逸恶劳，饕口馋舌，实川人之本性哉。少时求学于北，略有小成，不见精进。德君淡然，不求闻达。生平好编程之术，习摄影之法，尚老庄之道，研哲学之理。然浅尝辄止，不求甚解，不过尔尔。</p>
+        <p>问曰：“适于德君友乎？”</p>
+        <p>曰：“然也！”</p>
+        <hr>
+        {% include disqus.html %}
+      </div>
+    </div> <!-- content -->
+  </div> <!-- wrapper -->
+  {% include footer.html %}
+  </body>
+</html>

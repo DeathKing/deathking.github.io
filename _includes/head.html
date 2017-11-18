@@ -1,0 +1,52 @@
+<link rel="stylesheet" media="all" href="/stylesheets/typo.css">
+<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+
+{% if page.mathjax %}
+<script type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+      TeX: { 
+        equationNumbers: { autoNumber: "all" }, 
+        extensions: ["enclose.js","color.js"]
+      },
+      extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+      tex2jax: {
+          inlineMath: [['$','$'], ['\\(','\\)']],
+          displayMath: [['$$', '$$'], ['\\[','\\]']],
+          skipTags: ['script', 'noscript', 'style', 'textarea'],
+      },
+      "HTML-CSS": {
+        fonts: ["Latin-Modern"]
+      }
+  });
+  MathJax.Hub.Queue(function() {
+        // Fix <code> tags after MathJax finishes running. This is a
+        // hack to overcome a shortcoming of Markdown. Discussion at
+        // https://github.com/mojombo/jekyll/issues/199
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i = 0; i < all.length; i += 1) {
+            if(all[i].SourceElement().parentNode.className.indexOf('has-jax') == -1)
+            {
+              all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+            if(all[i].SourceElement().parentNode.className.indexOf('no-highlight') == -1)
+            {
+              all[i].SourceElement().parentNode.className += ' no-highlight';
+            }
+        }
+  });
+</script>
+{% endif %}
+<!-- - -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+{% if page.date %}
+  <meta content='{{ site.url }}{{ page.url }}' property='og:url' />
+  <meta content="{{ page.content | strip_html | strip_newlines | truncate: 120 }}" property='og:description' />
+  <meta content="article" property="og:type" />
+{% else %}
+  <meta content='{{ site.url }}' property='og:url' />
+  <meta content="{{ site.description }}" property='og:description' />
+  <meta content="blog" property="og:type" />
+{% endif %}
+<!-- - -->

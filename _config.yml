@@ -1,0 +1,20 @@
+title:            Ditro
+description:      Coding is a lifestyle.
+url:              DeathKing.github.io 
+signoff:          DeathKing
+disqus_shortname: deathking
+
+safe:             false
+
+links:
+  - name:         文章
+    url:          /
+  - name:         趣题
+    url:          /quiz
+  - name:         关于
+    url:          /about
+highlighter:      pygments
+permalink:        pretty
+markdown:         redcarpet
+redcarpet:
+  extensions:     ["tables"]

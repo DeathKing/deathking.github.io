@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='{{ site.title }}' property='og:title' />
+  <title>{{ site.title }}</title>
+  {% include head.html %}
+</head>
+<body>
+  {% include links.html %}
+  <div id="wrapper" class="typo typo-section">
+    <div id="index-content">
+      {{ content }}
+    </div> <!-- content -->
+  </div> <!-- wrapper -->
+
+  {% include footer.html %}
+</body>
+</html>

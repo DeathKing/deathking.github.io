@@ -1,0 +1,7 @@
+<div id="nav">
+  {% for link in site.links %}
+  <div class="nav-item">
+    <a target="{% if link.external %}_blank{% else %}_top{% endif %}" href="{{ link.url }}" title="" class="nav-item">{{ link.name }}</a>
+  </div>
+  {% endfor %}
+</div>
