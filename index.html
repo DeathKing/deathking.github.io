@@ -4,7 +4,7 @@ layout: index
 
 {% for post in site.posts %}
 <!-- {{ post.date | date: '%Y-%m-%d'}} -->
-  <div class="article-entry" onclick="location.href='{{ site.url }}{{ post.url }}';">
-    <a href="{{ site.url }}{{ post.url }}" title="" class="article-entry">{{ post.title }}<br><span style="font-family: sans-serif; text-transform: uppercase;">{{ post.subtitle }}</span></a>
+  <div class="article-entry" onclick="location.href='{{ post.url }}';">
+    <a href="{{ post.url }}" title="" class="article-entry">{{ post.title }}<br><span style="font-family: sans-serif; text-transform: uppercase;">{{ post.subtitle }}</span></a>
   </div>
 {% endfor %}
