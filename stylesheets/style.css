@@ -34,9 +34,9 @@ h1.title {
 }
 
 #wrapper{
-    margin:2% 20%;
+    margin:2% auto;
     padding: 20px;
-    max-width: 900px;
+    max-width: 1000px;
     display: flex;
     position:relative;
     height: 100%;
@@ -52,12 +52,12 @@ h1.title {
 
 #index-content {
     margin: 50px 0 20px 60px;
-    max-width: 900px;
+    max-width: 1000px;
     position: relative;
 }
 
 #article-content {
-    max-width: 800px;
+    max-width: 900px;
     padding: 30px 40px 20px 60px;
 }
 

@@ -33,24 +33,21 @@ mathjax: y
 $$
 
 \begin{align*}
-  \left< char   \right> & \longrightarrow & \; a \; | \; b \; | \; \dots \; | \; z \\
-  \left< digit  \right> & \longrightarrow & \; 0 \; | \; 1 \; | \; 2 \; | \; \dots \; | \; 9 \\
-  \left< sign   \right> & \longrightarrow & \; \epsilon \; | \; + \; | \; - \\
-  \left< number \right> & \longrightarrow & \; \left< digit \right> ^+ \\
-  \left< variable \right> & \longrightarrow & \; \left< char \right> ^+ \\
-  \left< decimal \right>  & \longrightarrow & \; \left< sign \right> \left< number \right> \; |
+  \left< char   \right> \longrightarrow & \; a \; | \; b \; | \; \dots \; | \; z \\
+  \left< digit  \right> \longrightarrow & \; 0 \; | \; 1 \; | \; 2 \; | \; \dots \; | \; 9 \\
+  \left< sign   \right> \longrightarrow & \; \epsilon \; | \; + \; | \; - \\
+  \left< number \right> \longrightarrow & \; \left< digit \right> ^+ \\
+  \left< variable \right> \longrightarrow & \; \left< char \right> ^+ \\
+  \left< decimal \right>  \longrightarrow & \; \left< sign \right> \left< number \right> \; |
                                            \; \left< sign \right> \left< number \right>  . \left< number \right> \\
-  \left< term   \right>   &\longrightarrow & \; \left< term \right> \; | \; \left< sign \right> \left< term \right> \; | \; ( \left< exp \right> ) \; | \; \left< decimal \right> \; | \; \left< variable \right> \\
-
-  \left< exp_{\Pi} \right> & \longrightarrow & \; \left< term \right> \; | \; \left< exp_{\Pi} \right> \ast \left< term \right> \; | \; \left< exp_{\Pi} \right> / \left< term \right> \; \\
-  \left< exp_{\Sigma} \right> &\longrightarrow & \; \left< exp_{\Sigma} \right> + \left< exp_{\Pi} \right> \; | 
+  \left< term   \right>  \longrightarrow & \; \left< sign \right> \left< term \right> \; | \; ( \left< exp \right> ) \; | \; \left< decimal \right> \; | \; \left< variable \right> \\
+  \left< exp_{\Pi} \right> \longrightarrow & \; \left< exp \right> \ast \left< exp \right> \; | \; \left< exp \right> / \left< exp \right> \; \\
+  \left< exp_{\Sigma} \right> \longrightarrow & \; \left< exp_{\Sigma} \right> + \left< exp_{\Pi} \right> \; | 
   \; \left< exp_{\Sigma} \right>  - \left< \exp_{\Pi} \right> \\
-
-  \left< exp \right> & \longrightarrow & \; \left< term \right> \; |
+  \left< exp \right> \longrightarrow & \; \left< term \right> \; |
                                        \; \left< exp \right> +    \left< term \right>  \; |
                                        \; \left< exp \right> -    \left< term \right>  \; | \\
-
-                    &               & \; \left< exp \right> \ast \left< term \right>  \; |
+                                     & \; \left< exp \right> \ast \left< term \right>  \; |
                                        \; \left< exp \right> /    \left< term \right>  \; |
                                        \; \left< exp \right> \text{^} \left< exp \right> \; |
                                        \; SQRT(\left< exp \right>) \; |
