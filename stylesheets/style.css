@@ -218,3 +218,7 @@ img.display {
     font-weight: bold;
     font-style: normal;
 }
+
+pre {
+    overflow-x: auto;
+}
