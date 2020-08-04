@@ -222,3 +222,7 @@ img.display {
 pre {
     overflow-x: auto;
 }
+
+li {
+    margin-bottom: 0.3em;
+}

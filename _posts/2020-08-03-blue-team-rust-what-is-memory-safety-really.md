@@ -71,7 +71,7 @@ cargo启用可组合性：你的项目可以将第三方库集成为静态链接
 
 不完全是。整数溢出并不算是内存安全问题，但它肯定是造成任意命令执行（ACE）的一条复杂内存腐坏BUG链的一部分。假设一个有问题的整数在写入攻击者控制的数据之前被用作索引，安全的Rust仍会阻止该写入。
 
-无论如何，整数溢出会导致令人讨厌的错误。 cargo使用可[配置的](https://doc.rust-lang.org/cargo/reference/profiles.html)构建配置文件来控制编译设置，其中就包括整数溢出处理。默认`debug`（低优化）配置文件包括`overflow-checks = true`，因此二进制输出会在开发人员没有显式地处理整数溢出（例如，`u32::wrapping_add`）时恐慌。除非配置被覆写，否则`release`（高优化）模式将执行相反的操作：允许静默包装（wrap-around），就像C / C ++，因为删除检查会提高性能。与C / C ++不同，[Rust中整数溢出不是未定义的行为](http://huonw.github.io/blog/2016/04/myths-and-legends-about-integer-overflow-in-rust/)；可以认为Rust中封装后的二进制补码是可靠的。
+无论如何，整数溢出会导致令人讨厌的错误。 cargo使用可[配置的](https://doc.rust-lang.org/cargo/reference/profiles.html)构建配置文件来控制编译设置，其中就包括整数溢出处理。默认`debug`（低优化）配置文件包括`overflow-checks = true`，因此二进制输出会在开发人员没有显式地处理整数溢出（例如，`u32::wrapping_add`）时恐慌。除非配置被覆写，否则`release`（高优化）模式将执行相反的操作：允许静默包装（wrap-around），就像C/C++，因为删除检查会提高性能。与C/C++不同，[Rust中整数溢出不是未定义的行为](http://huonw.github.io/blog/2016/04/myths-and-legends-about-integer-overflow-in-rust/)；可以认为Rust中封装后的二进制补码是可靠的。
 
 如果性能是第一要务，则测试用例应该在`debug`构建下争取足够的覆盖率，以捕获大部分整数溢出。如果安全性是第一要务，请考虑在`release`模式下启用溢出检查并试图引发恐慌。
 

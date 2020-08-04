@@ -2,3 +2,5 @@ _site/
 .sass-cache
 .ruby-version
 .DS_store
+.rake_tasks~
+.jekyll-cache
