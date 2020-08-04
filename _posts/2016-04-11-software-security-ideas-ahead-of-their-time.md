@@ -15,7 +15,7 @@ disqus: y
 
 + **作　　者：** Michael Hicks, Andrew Ruef  
 + **译　　者：** DeathKing, 樊昱才, 曹鹤梅  
-+ **原文地址：** [http://www.pl-enthusiast.net/2016/02/01/software-security-ideas-ahead-of-their-time/]()
++ **原文地址：** [Software Security Ideas Ahead of Their Time](http://www.pl-enthusiast.net/2016/02/01/software-security-ideas-ahead-of-their-time/)
 
 作为研究者，我们经常被要求从水晶球中预测未来。我们试图预测未来将面临的问题，这样一来，当问题实际到来之时，我们当前开始做的工作就能够帮助我们解决掉它。有时候，研究人员会去猜测将要出现的问题以及可能的解决方案，但是却不选择去追寻到底。某种意义上来说，她发现了一个超前于时代的想法，但却又抛弃了它。
 

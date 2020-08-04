@@ -16,7 +16,7 @@ mathjax: y
 
 + **作　　者：** Michael Hicks
 + **译　　者：** DeathKing
-+ **原文地址：** [http://www.pl-enthusiast.net/2017/10/23/what-is-soundness-in-static-analysis]()
++ **原文地址：** [http://www.pl-enthusiast.net/2017/10/23/what-is-soundness-in-static-analysis](http://www.pl-enthusiast.net/2017/10/23/what-is-soundness-in-static-analysis)
 
 > **译注**  
 > 术语 soundy 描述了一种近似 sound 的状态，但我目前没有找到足够合适的词来对应这个概念，因此在本文中仍然保留 soundy 这个词。）**
