@@ -18,9 +18,7 @@ disqus: y
 + **原文地址：** [Compiling Rust is NP-hard](https://niedzejkob.p4.team/rust-np/)，译文略有删节。
 
 
-...虽然不是旗舰借阅检查有问题。我注意到并且今天想与大家分享的是，Rust 编译器对match模式执行的详尽检查是SAT问题的超集 。
-
-尽管不是借用检查这个旗舰特性的过错……但我今天想与你分享的是，我注意到由 Rust 编译器所进行的穷尽性检查（exhaustiveness checking）是 SAT 问题的一个超集（superset）。
+尽管不是借用检查这个旗舰特性的过错……但我今天想与你分享的是，我注意到由 Rust 编译器所进行的**穷尽性检查（exhaustiveness checking）**是 SAT 问题的一个超集（superset）。
 
 ## 穷尽性检查
 
