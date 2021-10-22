@@ -299,7 +299,13 @@ Scheme 需要先求值子表达式 `(+ 1 2)` ，程序控制权转移到子表�
 
 ## 后记
 
+The Little Schemer 的中译版制作非常精良，译者翻译也十分用心。在阅读时，我注意到第 142 页的一条脚注：
 
+> 译者注：原文为 “...and that multiinsertLR will return () when lat is empty.” 有误。正确的应该是 “multiinsertLR&co will return ()”。
+
+我能理解译者的意图。但事实上，Dan Friedman 的原文是正确的，同时也是理解 CPS 变换的关键点。也就是说，对于 CPS 变换，我们并不改变函数的“语义”，只是改变了函数的“返回”方式。`multiinsertLR&co` 的定义当然依赖于原函数。
+
+本文仅做为抛砖引玉之介绍，关于 continuation 和 CPS 还有很多有意思的高级主题，希望之后我们能涵盖到。
 
 ## 参考资料
 

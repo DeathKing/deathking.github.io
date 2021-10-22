@@ -13,7 +13,8 @@ links:
     url:          /quiz
   - name:         关于
     url:          /about
-highlighter:      pygments
+highlighter: rouge
+input:  GFM
 permalink:        pretty
 markdown:         kramdown
 redcarpet:

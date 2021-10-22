@@ -1,5 +1,7 @@
 <link rel="stylesheet" media="all" href="/stylesheets/typo.css">
 <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+<link rel="stylesheet" type="text/css" href="/stylesheets/base16.css">
+
 
 {% if page.mathjax %}
 <script type="text/javascript"
@@ -7,7 +9,16 @@ src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-
   MathJax.Hub.Config({
       TeX: { 
         equationNumbers: { autoNumber: "all" }, 
-        extensions: ["enclose.js","color.js"]
+        extensions: ["enclose.js","color.js"],
+        Augment: {
+          Definitions: {
+            // https://stackoverflow.com/questions/42768389/double-brackets-in-mathjax
+            delimiter: {
+              '\\llbracket': '27E6',
+              '\\rrbracket': '27E7'
+            }
+          }
+        }
       },
       extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
       tex2jax: {
