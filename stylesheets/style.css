@@ -36,12 +36,34 @@ h1.title {
 #wrapper{
     margin:2% auto;
     padding: 20px;
-    max-width: 1000px;
+    max-width: 1240px;
     display: flex;
     position:relative;
     height: 100%;
     border: 1px solid;
     background: white;
+}
+
+.section-nav {
+  /* position: sticky;
+  position: -webkit-sticky;
+  top: 0px; */
+  padding-left: 0;
+  border-left: 1px solid #ddd;
+}
+
+.section-nav li {
+  list-style: none;
+}
+
+.section-nav li>ul {
+    margin-left: 16px; 
+}
+
+.section-nav li:hover,
+.section-nav li:focus {
+    list-style-type: '▎'; 
+    /* ▍▌'; */
 }
 
 #about-content {
@@ -57,7 +79,7 @@ h1.title {
 }
 
 #article-content {
-    max-width: 900px;
+    max-width: 850px;
     padding: 30px 40px 20px 60px;
 }
 
@@ -125,8 +147,8 @@ html {
 }
 
 em, strong {
-    font-family: cursive;
-    font-weight: normal;
+    /* font-family: cursive; */
+    font-weight:600;
 }
 
 .avatar {
@@ -144,7 +166,7 @@ ul.article-entry li {
 
 .has-shadow {
   /*box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);*/
-  box-shadow: 0 2px 16px #000, 0 0 30px rgba(0,0,0,0.25); 
+  box-shadow: 0 2px 8px #000, 0 0 15px rgba(0,0,0,0.25); 
 }
 
 .img-margin {
@@ -157,7 +179,6 @@ img.display {
     margin-left: auto;
     margin-right: auto
 }
-
 
 .theorem {
     display: block;

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
     <meta content='{{ page.title }} - {{ site.title }}' property='og:title' />
@@ -15,6 +16,7 @@
             <div class='date'>{{ page.date | date_to_string }}</div>
             {{ page.title }}
           </h1>
+          {% include toc.html html=content %}
           {{ content }}
           {% include signoff.html %}
 
@@ -30,6 +32,9 @@
       {% endif %}
       {% include links.html %}
     </div>
+    <nav class="section-nav">
+      {% include toc.html html=content %}
+    </nav>
     {% include footer.html %}
   </body>
 </html>

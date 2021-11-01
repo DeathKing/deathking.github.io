@@ -32,7 +32,7 @@ SICP 书里面，Abelson 和 Sussman 教授一再给我们强调在语言中构�
 
 先上代码和演示效果！
 
-### cat（`example/01cat.strm.rb`）
+### cat (`example/01cat.strm.rb`)
 
 + 代码
 
@@ -55,7 +55,7 @@ STDIN.| STDOUT
 
 <img src="/images/post/streem-cat-test.png" alt="" class="has-shadow img-margin display" style="width: 80%;">
 
-## grep(`example/11grep.strm.rb`)
+### grep (`example/11grep.strm.rb`)
 
 这个例子演示的是 RbStreem 脚本在搜索一个特定目录下所有的 Ruby 脚本文件是否包含某个特别的字符。如果找到，则输出该行，并加亮该字符串。这个代码是原 streem 范例中没有的演示代码，不过本例也能演示出 RbStreem 中比较有意思的地方。
 

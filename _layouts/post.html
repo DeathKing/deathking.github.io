@@ -9,10 +9,12 @@
   {% include links.html %}
   <div id="wrapper" class="typo typo-section textwrap">
     <div id="article-content">
-      <header id="header">
+      <header id="header" class="">
         <h1 class="title">{% if page.formatted_title %} {{ page.formatted_title }} {% else %} {{ page.title }} {% endif %}</h1>
-        <div class="subtitle">{{ page.subtitle }}</div>
-      </header><!-- /header -->
+        {% if page.subtitle %}
+          <div class="subtitle">{{ page.subtitle }}</div>
+        {% endif %}
+      </header>
       <section class="post">
         {{ content }}
         <br>
@@ -21,6 +23,9 @@
         {% include disqus.html %}
       {% endif %}
     </div> <!-- content -->
+    <nav class="section-nav">
+      {% include toc.html html=content %}
+    </nav>
   </div> <!-- wrapper -->
   {% include footer.html %}
   </body>

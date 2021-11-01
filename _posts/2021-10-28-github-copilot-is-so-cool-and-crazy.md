@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "为什么 GitHub Copilot 让我惊奇"
+title: "Copilot：宇宙第一 Stack Overflow 初体验"
 subtitle: "GitHub Copilot is so cool and crazy"
 modified: 2021-10-28 21:28:55 +0800
 tags: [github, copilot, ai auto completion]
@@ -15,6 +15,8 @@ share: y
 
 最近取得了 GitHub Copilot 的试用资格，于是赶紧尝新了一把。
 
+<img src="/images/post/copilot42.png" alt="" class="has-shadow img-margin display" style="width: 85%;">
+
 ## 使用 Copilot 之前……
 
 刚好手上在实现一个小玩具，主要功能之一是基于符号化的方法求解表达式的导函数。我已经将部分函数实现为了 `UnaryFunc` 的实例，而这个类要求程序员在初始化时提供四个参数：
@@ -24,7 +26,7 @@ share: y
 3. `derivexpr`：如何构造函数的导函数，应该返回一个 `Expr` 类型的表达式；
 4. `latexit`：如何将函数格式化为 LaTeX 代码。
 
-![](/images/post/copilot0.png)
+<img src="/images/post/copilot0.png" alt="" class="has-shadow img-margin display" style="width: 85%;">
 
 在引入 Copilot 之前，我就在程序库中实现了 `MathLn`、`MathSin` 以及 `MathCos` 。如你所见，它们都十分简单。可是，当激活 Copilot 之后，一切都变得疯狂了……
 
@@ -32,11 +34,11 @@ share: y
 
 在激活 Copilot 之后，当我准备实现 `MathSqrt` 的时，神奇的事儿发生了：我只键入了 `MathSqrt` ，Copliot 就帮我补齐了 531 - 535 行的代码。我不记得 `MathSqrt` 的 `derivexpr` 属性是如何补全的，但应该也是一个错误答案，由于这里并不急着用这个属性，我就放了一个代码用于占位，并加上了一个 `FIXME` 的注释，当然，后面的内容也是 Copilot 帮我补全的，真是有点冷幽默。
 
-![](/images/post/copilot1.png)
+<img src="/images/post/copilot1.png" alt="" class="has-shadow img-margin display" style="width: 85%;">
 
 说实话，到这一步我并不是很吃惊，因为我前面实现了三个函数，已经具有很明显的模式了。我认为 AI 能够很容易地捕获这些重复的模式。
 
-![](/images/post/copilot1_mathpow.png)
+<img src="/images/post/copilot1_mathpow.png" alt="" class="has-shadow img-margin display" style="width: 85%;">
 
 真正让我吃惊的是 537 行：我键入 `MathPow` 后，它提示我这应该是 `BinaryFunc` 的一个实例，然后它的 `symbol` 应该为 `"pow"` ！需要指出的是，`BinaryFunc` 是我之前就定义好的一个类，而不是 Copilot 引入或要求我定义的类，也就是说：
 
@@ -45,7 +47,7 @@ share: y
 
 紧接着，Copilot 指导我完成 `MathPow` 的定义，它快速地给出我如下建议：
 
-![](/images/post/copilot2.png)
+<img src="/images/post/copilot2.png" alt="" class="has-shadow img-margin display" style="width: 85%;">
 
 不知道读者是否能够体会我当时的心境，但却确实大受震撼。不是因为它正确地定义了 `evaluate` ，我也没有受的瑕疵的 `latexit` 影响，我盯着 `derivexpr` 的定义看了半晌：
 
@@ -54,7 +56,7 @@ share: y
 
 尽管我们的程序是一段 Python 程序，由于我们向里面加入了各种基本原语，我们不妨认为我们创造了一个新的语言 `P1`。因此，Copilot ① 能够“理解”以我们的意图，② 能够将正确解法（也许是来自于 Python 语言，也有可能是其它语言）“翻译”为 `P1` 语言中合法的句子。**从这个角度来看 Copilot，不是把它看做一个针对特定语言的程序综合任务，而是看做一个就像“英译汉”那样的翻译任务，这个视角是挺新奇的。**
 
-![](/images/post/copilot3.png)
+<img src="/images/post/copilot3.png" alt="" class="has-shadow img-margin display" style="width: 85%;">
 
 更好玩的是，我只要求补全 `MathPow` ，Copilot 却顺带帮我完成了 `MathExp` 和 `MathLog` 的定义！读者可以检验一下 Copilot 给出的解法是否正确。
 
@@ -64,8 +66,7 @@ share: y
 
 我想要定义一个类 `FuncCallExpr` ，实现类似于 Lisp 中 `apply` 函数的效果，这样，我们可以尽量统一 `UnaryFunc` 和 `BinaryFunc` 的代码。由于我们给定 `FuncCallExpr` 继承自 `Expr` ，那么就应该实现父类所要求的代码，下面是 Copilot 给出的答卷，跟我预期的结果真是差得八九不离十了！
 
-![](/images/post/copilot4.png)
-
+<img src="/images/post/copilot4.png" alt="" class="has-shadow img-margin display" style="width: 85%;">
 
 ## 沉思 Copilot 的意义，以及程序设计的未来
 

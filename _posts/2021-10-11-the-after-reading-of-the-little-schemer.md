@@ -115,9 +115,9 @@ Scheme 需要先求值子表达式 `(+ 1 2)` ，程序控制权转移到子表�
 </pre></code>
 </td>
 </tr>
-<tr>
-<td>正常风格</td>
-<td>Continuation-Passing-Style</td>
+<tr class="text-align: center">
+<td><b>Direct Style</b></td>
+<td><b>Continuation-Passing-Style</b></td>
 </tr>
 </tbody>
 </table>
@@ -125,7 +125,7 @@ Scheme 需要先求值子表达式 `(+ 1 2)` ，程序控制权转移到子表�
 
 此时，`evens-only*&co` 函数的语义会发生细微的变化：给定一张表 `l`，该函数会构造一张只保留了偶数元素的新表 `l^`，并调用 `(co l^)`，没有对函数本身的返回值做出任何承诺。我们需要注意这其中的细微变化。
 
-先考虑其中的原子情况，作为递归的边界条件，当 `l` 为空的时候，我们应该做什么呢？这需要我们考察原函数的语义。`(evens-only* '())` 返回空表，因此，`evens-only*&co` 也应该“返回”空表。在这一层，我们没有需要再进行的计算了，我们以空表为参数调用继续：
+**先考虑其中的原子情况**：作为递归的边界条件，当 `l` 为空的时候，我们应该做什么呢？这需要我们考察原函数的语义。`(evens-only* '())` 返回空表，因此，`evens-only*&co` 也应该“返回”空表。在这一层，我们没有需要再进行的计算了，我们以空表为参数调用继续：
 
 <div style="margin-bottom: 20px">
 <table style="margin:auto">
@@ -142,15 +142,15 @@ Scheme 需要先求值子表达式 `(+ 1 2)` ，程序控制权转移到子表�
 </pre></code>
 </td>
 </tr>
-<tr>
-<td>正常风格</td>
-<td>Continuation-Passing-Style</td>
+<tr style="text-align: center">
+<td><b>Direct Style</b></td>
+<td><b>Continuation-Passing-Style</b></td>
 </tr>
 </tbody>
 </table>
 </div>
 
-继续考虑其他情况，当 `(car l)` 为原子时，我么需要根据其奇偶性来决定后续操作。我们先考虑较为简单的 `else` 子句。如果 `(car l)` 是奇数，那么 `(evens-only* l)` 与 `(evens-only* (cdr l))` 的结果应该一致，也就是说，把求解关于 `l` 的子问题，归约为了规模较小一点的，关于 `(cdr l)` 的问题。
+**继续考虑其他情况**：当 `(car l)` 为原子时，我么需要根据其奇偶性来决定后续操作。我们先考虑较为简单的 `else` 子句。如果 `(car l)` 是奇数，那么 `(evens-only* l)` 与 `(evens-only* (cdr l))` 的结果应该一致，也就是说，把求解关于 `l` 的子问题，归约为了规模较小一点的，关于 `(cdr l)` 的问题。
 
 ```scheme
 ;;; evens-only*
@@ -212,57 +212,57 @@ Scheme 需要先求值子表达式 `(+ 1 2)` ，程序控制权转移到子表�
 <table style="margin:auto">
 <tbody>
 <tr>
-<td>
+<td style="padding: 1px 1px 1px;">
 <code><pre>
-01. (define evens-only*
-02.   (lambda (l)
-03.     (cond
-04.       [(null? l) <span style="color:red">'()</span>]
-05.       [(atom? (car l))
-06.        (cond
-07.          [(even? (car l))
-08.            <span style="color:red">(cons (car l)</span> <span style="color:blue">(evens-only* (cdr l))</span><span style="color:red">)</span>]
-09.
-10.
-11.          [else
-12.           <span style="color:red">(</span><span style="color:blue">evens-only* (cdr l)</span><span style="color:red">)</span>])]
-13. 
-14. 
-15.       [else
-16.        <span style="color:red">(cons</span> <span style="color:green">(evens-only* (car l))</span>
-17.              <span style="color:orange">(evens-only* (cdr l))</span><span style="color:red">)</span>])))
-18.
-19.
-20.
+(define evens-only*
+  (lambda (l)
+    (cond
+      [(null? l) <span style="color:red">'()</span>]
+      [(atom? (car l))
+       (cond
+         [(even? (car l))
+           <span style="color:red">(cons (car l)</span> <span style="color:blue">(evens-only* (cdr l))</span><span style="color:red">)</span>]
+
+
+          [else
+           <span style="color:red">(</span><span style="color:blue">evens-only* (cdr l)</span><span style="color:red">)</span>])]
+ 
+ 
+       [else
+        <span style="color:red">(cons</span> <span style="color:green">(evens-only* (car l))</span>
+              <span style="color:orange">(evens-only* (cdr l))</span><span style="color:red">)</span>])))
+
+
+
 </pre></code>
 </td>
-<td>
+<td style="padding: 1px 1px 1px;">
 <code><pre>
-01. (define evens-only*&co
-02.   (lambda (l co)
-03.     (cond
-04.       [(null? l) <span style="color:red">(co '())</span>]
-05.       [(atom? (car l)
-06.        (cond
-07.          [(even? (car l))
-08.           (<span style="color:blue">evens-only*&co (cdr l)</span>
-09.             (lambda (<span style="color:blue">l^</span>)
-10.               <span style="color:red">(co (cons (car l) l^)))</span>))]
-11.          [else
-12.           (<span style="color:blue">evens-only*&co (cdr l)</span>
-13.             (lambda (<span style="color:blue">l^</span>)
-14.               <span style="color:red">(co l^)</span>))])]
-15.      [else
-16.        (<span style="color:green">evens-only*&co (car l)</span>
-17.          (lambda (<span style="color:green">l^</span>)
-18.            (<span style="color:orange">evens-only*&co (cdr l)</span>
-19.              (lambda (<span style="color:orange">l^^</span>)
-20.                <span style="color:red">(co (cons</span> <span style="color:green">l^</span> <span style="color:orange">l^^</span>)))))))])))
+(define evens-only*&co
+  (lambda (l co)
+    (cond
+      [(null? l) <span style="color:red">(co '())</span>]
+      [(atom? (car l)
+       (cond
+         [(even? (car l))
+          (<span style="color:blue">evens-only*&co (cdr l)</span>
+            (lambda (<span style="color:blue">l^</span>)
+              <span style="color:red">(co (cons (car l) l^)))</span>))]
+         [else
+          (<span style="color:blue">evens-only*&co (cdr l)</span>
+            (lambda (<span style="color:blue">l^</span>)
+              <span style="color:red">(co l^)</span>))])]
+     [else
+       (<span style="color:green">evens-only*&co (car l)</span>
+         (lambda (<span style="color:green">l^</span>)
+           (<span style="color:orange">evens-only*&co (cdr l)</span>
+             (lambda (<span style="color:orange">l^^</span>)
+               <span style="color:red">(co (cons</span> <span style="color:green">l^</span> <span style="color:orange">l^^</span>)))))))])))
 </pre></code>
 </td>
 </tr>
 <tr style="text-align:center">
-<td><b>正常风格</b></td>
+<td><b>Direct Style</b></td>
 <td><b>Continuation-Passing-Style</b></td>
 </tr>
 </tbody>
