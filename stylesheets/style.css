@@ -247,3 +247,19 @@ pre {
 li {
     margin-bottom: 0.3em;
 }
+
+.nav-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 20px;
+}
+
+nav > ul > li > a  {
+    border-bottom: none !important;
+    color: rgb(138, 138, 138);
+}
+
+nav > ul > li > a:hover  {
+    font-weight: bold;
+    /* color: black; */
+}
