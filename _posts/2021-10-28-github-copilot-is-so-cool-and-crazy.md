@@ -13,6 +13,10 @@ disqus: y
 share: y
 ---
 
+> When someone says "I want a programming language in which I need only say what I wish done," give him a lollipop.
+>  
+> Alan J. Perlis, [Epigrams on Programming](http://pu.inf.uni-tuebingen.de/users/klaeren/epigrams.html), Quote 93
+
 最近取得了 GitHub Copilot 的试用资格，于是赶紧尝新了一把。
 
 <img src="/images/post/copilot42.png" alt="" class="has-shadow img-margin display" style="width: 85%;">

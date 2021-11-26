@@ -1,3 +1,10 @@
+GIT
+  remote: git@github.com:eventmachine/eventmachine
+  revision: 9cb13a8a62363df5ebcc414169a3deb2c1608528
+  tag: v1.2.7
+  specs:
+    eventmachine (1.2.7)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -8,8 +15,6 @@ GEM
     em-websocket (0.5.2)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
-    eventmachine (1.2.7)
-    eventmachine (1.2.7-x64-mingw32)
     ffi (1.15.4)
     ffi (1.15.4-x64-mingw32)
     forwardable-extended (2.6.0)
@@ -60,6 +65,7 @@ GEM
     terminal-table (2.0.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
     unicode-display_width (1.8.0)
+    wdm (0.1.1)
     webrick (1.7.0)
 
 PLATFORMS
@@ -67,7 +73,9 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  eventmachine (= 1.2.7)!
   jekyll
+  wdm (>= 0.1.0)
   webrick
 
 BUNDLED WITH
