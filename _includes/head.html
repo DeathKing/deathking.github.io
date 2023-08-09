@@ -6,6 +6,9 @@
 <link rel="stylesheet" type="text/css" href="/stylesheets/base16.css">
 
 {% include clarity.html %}
+{% if page.typogram %}
+<script src="/javascripts/typograms.js"></script>
+{% endif %}
 
 {% if page.mathjax %}
 <script type="text/javascript"
